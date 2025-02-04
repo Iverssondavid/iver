@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1s infinite alternate;
+        }
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes {
+            background: green;
+            color: white;
+        }
+        .no {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>¿Quieres ser mi mujer? 💗</h2>
+        <div class="heart">💗</div>
+        <div class="buttons">
+            <button class="yes" onclick="respond('yes')">Sí</button>
+            <button class="no" onclick="moveNo()">No</button>
+        </div>
+    </div>
+    
+    <script>
+        function respond(answer) {
+            if (answer === 'yes') {
+                window.location.href = 'pagina_con_imagenes.html'; // Redirige a la página con las imágenes
+            }
+        }
+        
+        function moveNo() {
+            let btnNo = document.querySelector('.no');
+            let x = Math.random() * window.innerWidth - 100;
+            let y = Math.random() * window.innerHeight - 50;
+            btnNo.style.position = 'absolute';
+            btnNo.style.left = `${x}px`;
+            btnNo.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
